@@ -52,6 +52,7 @@ public class Student {
 	public Address getPermanentAddress() {
 		return permanentAddress;
 	}
+	
 
 	public void setPermanentAddress(Address permanentAddress) {
 		this.permanentAddress = permanentAddress;
@@ -66,10 +67,11 @@ public class Student {
 	}
 
 	@Override
-	public int hashCode() { 		//TODO: fix issue if exist
-		
+	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + id;
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((mailingAddress == null) ? 0 : mailingAddress.hashCode());
 		result = prime * result + ((permanentAddress == null) ? 0 : permanentAddress.hashCode());
@@ -77,8 +79,13 @@ public class Student {
 	}
 
 	@Override
-	public boolean equals(Object obj) { //TODO: fix issue if exist
-		
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
 		Student other = (Student) obj;
 		if (firstName == null) {
 			if (other.firstName != null)
@@ -105,7 +112,7 @@ public class Student {
 		return true;
 	}
 
-	
+
 	
 
 }

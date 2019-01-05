@@ -1,16 +1,16 @@
 package org.learn.java;
 
 public class Address {
-	//general - fix the class if there is any issue
-	
-	private int streetNumber;
+
+	private Integer streetNumber;
 	private String streetName;
 	private String steetName2; // optional
 	private String city;
 	private String state;
-	private int zipcode;
-
-	public Address(int streetNumber, String streetName, String steetName2, String city, String state, int zipcode) {
+	private Integer zipcode;
+	
+	public Address(Integer streetNumber, String streetName, String steetName2, String city, String state,
+			Integer zipcode) {
 		super();
 		this.streetNumber = streetNumber;
 		this.streetName = streetName;
@@ -19,71 +19,49 @@ public class Address {
 		this.state = state;
 		this.zipcode = zipcode;
 	}
-
-	/*public Address(int streetNumber, String streetName, String city, String state, int zipcode) {
-		super();
-		this.streetNumber = streetNumber;
-		this.streetName = streetName;
-		this.streetName = streetName;
-		this.city = city;
-		this.state = state;
-		this.zipcode = zipcode;
-	}*/
-
-	public int getStreetNumber() {
+	
+	public Integer getStreetNumber() {
 		return streetNumber;
 	}
-
-	public void setStreetNumber(int streetNumber) {
+	public void setStreetNumber(Integer streetNumber) {
 		this.streetNumber = streetNumber;
 	}
-
 	public String getStreetName() {
 		return streetName;
 	}
-
 	public void setStreetName(String streetName) {
 		this.streetName = streetName;
 	}
-
 	public String getSteetName2() {
 		return steetName2;
 	}
-
 	public void setSteetName2(String steetName2) {
 		this.steetName2 = steetName2;
 	}
-
 	public String getCity() {
 		return city;
 	}
-
 	public void setCity(String city) {
 		this.city = city;
 	}
-
 	public String getState() {
 		return state;
 	}
-
 	public void setState(String state) {
 		this.state = state;
 	}
-
-	public int getZipcode() {
+	public Integer getZipcode() {
 		return zipcode;
 	}
-
-	public void setZipcode(int zipcode) {
+	public void setZipcode(Integer zipcode) {
 		this.zipcode = zipcode;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Address [streetNumber=" + streetNumber + ", streetName=" + streetName + ", steetName2=" + steetName2
 				+ ", city=" + city + ", state=" + state + ", zipcode=" + zipcode + "]";
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -92,11 +70,11 @@ public class Address {
 		result = prime * result + ((state == null) ? 0 : state.hashCode());
 		result = prime * result + ((steetName2 == null) ? 0 : steetName2.hashCode());
 		result = prime * result + ((streetName == null) ? 0 : streetName.hashCode());
-		result = prime * result + streetNumber;
-		result = prime * result + zipcode;
+		result = prime * result + ((streetNumber == null) ? 0 : streetNumber.hashCode());
+		result = prime * result + ((zipcode == null) ? 0 : zipcode.hashCode());
 		return result;
 	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -126,11 +104,18 @@ public class Address {
 				return false;
 		} else if (!streetName.equals(other.streetName))
 			return false;
-		if (streetNumber != other.streetNumber)
+		if (streetNumber == null) {
+			if (other.streetNumber != null)
+				return false;
+		} else if (!streetNumber.equals(other.streetNumber))
 			return false;
-		if (zipcode != other.zipcode)
+		if (zipcode == null) {
+			if (other.zipcode != null)
+				return false;
+		} else if (!zipcode.equals(other.zipcode))
 			return false;
 		return true;
 	}
-
+	
+	
 }

@@ -6,10 +6,13 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 public class Application {
 	
 	static {
@@ -44,36 +47,52 @@ public class Application {
 		
 		
 		Student s0 = new Student("Daud","Ibrahim",a0,a1);
+
 		Student s1 = new Student("Arzeesh","Zaman",a2,a3);
 		Student s2 = new Student("Courtney","Gayle",a4,a5);
+		Student s3 = new Student("Jaladala","Ibrahim",a0,a1);
 		
 	        
-		 List<Student> students = Arrays.asList(new Student[] { s0, s1,s2});
+		 List<Student> students = Arrays.asList(new Student[] { s0, s1,s2, s3});
 		 
 	        
 	        System.out.println("Before sorting ----");
-	      System.out.println( students);
+	        students.forEach(System.out::println);
 	        
-	        Comparator<Student> myStudentComparator = new StudentLastNameComparator();
-			Collections.sort(students, myStudentComparator);
-			System.out.println("after  sorting   -----");
-			 System.out.println( students);
-		        
-		  
-	//
-			 List<Student> a = Arrays.asList(new Student[] {s0,s1,s2 });
-			 System.out.println(a);
+	        System.out.println(" Set BASED ON LAST NAME ----");
+	        
+	      // TO BE CONTINUED
+	        
+	  //      Comparator<Student> myStudentComparator = 
+	//		Collections.sort(students, new StudentLastNameComparator());
+//			System.out.println("after  sorting   -----");
+//			 students.forEach(System.out::println);
+//			 
+//			 List<Student> students1 = Arrays.asList(new Student[] { s0, s1,s3});
+//			 Collections.sort(students1, 
+//					 (x1, x2) -> x1.getMailingAddress().getZipcode().compareTo(x2.getMailingAddress().getZipcode()));
+//			 System.out.println("zip sorting ----");		
+//			 students1.forEach(System.out::println);
+//			 System.out.println(" sorting BASED ON NAME ----");	
+//			 
+//			 
+//			 // find student based on their name
+//			 List<Student> student2 = Arrays.asList(new Student[] { s0, s1,s2 , s3});
+////			 List<Student> findStudent = student2
+////					 .stream()  // allows to to some manipulation on the list object
+////					 .filter(x -> x.getLastName().equalsIgnoreCase("ibrahim")) // filter it by going through last name and ignoring case
+////					 .collect(Collectors.toList()); // put stream in list to display it
+////			 findStudent.forEach(System.out::println);
+	        
+//			 //  without using stream
+//			 for(Student findStudent1 : student2) {
+//				 if(findStudent1.getLastName() != null && findStudent1.getLastName().equalsIgnoreCase("Ibrahim")) {
+//					 System.out.println(findStudent1);
+//				 }
+
 			
-			 			 
-			 for( Student student : a){
-				 Address del = new Address(0, null, null, null, null, 0);
-				 Student s = new Student(student.getFirstName(),student.getLastName(),del,del);
-				 System.out.println(a.add(s));
 			 }
-			 
-			
-		
-	}
+	
 	
 	
 	public static void sqrt() {
