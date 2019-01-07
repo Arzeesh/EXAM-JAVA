@@ -13,6 +13,8 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
+
+import javax.print.DocFlavor.INPUT_STREAM;
 public class Application {
 	
 	static {
@@ -51,15 +53,36 @@ public class Application {
 		Student s1 = new Student("Arzeesh","Zaman",a2,a3);
 		Student s2 = new Student("Courtney","Gayle",a4,a5);
 		Student s3 = new Student("Jaladala","Ibrahim",a0,a1);
-		
-	        
+			
+	       
+		/*
 		 List<Student> students = Arrays.asList(new Student[] { s0, s1,s2, s3});
+		   // unique last name set
 		 
+	Set <Student> lastname = students
+			.stream()
+			.distinct()
+			.collect(Collectors.toSet());
+	
+	lastname.forEach(System.out::println);
+	
+	// remove all the address infor
+	System.out.println("REmove Address");
+	
+	List<Student> removeAddress = lastname
+			.stream()
+			.map(x -> {return new Student(x.getFirstName(),x.getLastName(),null,null);})
+			.collect(Collectors.toList());
 	        
-	        System.out.println("Before sorting ----");
-	        students.forEach(System.out::println);
-	        
-	        System.out.println(" Set BASED ON LAST NAME ----");
+	removeAddress.forEach(System.out::println);*/
+	
+		Scanner  input =  new Scanner(System.in);
+		System.out.println("Enter number to see  Nth sequence");
+		int a = input.nextInt();
+	System.out.println(NthFibonaci(a));
+		
+
+	System.out.println(findGCD(6, 4));
 	        
 	      // TO BE CONTINUED
 	        
@@ -92,6 +115,27 @@ public class Application {
 
 			
 			 }
+	
+	private static  int NthFibonaci(  int  i) { 
+		//base case 
+	
+		if(i == 1 || i ==2){
+			
+		return 1;
+		
+		}		
+		return (NthFibonaci(i-1)+ NthFibonaci( i-2));
+
+	}
+	
+	private static int findGCD(int number1, int number2) { 
+		//base case 
+		if(number2 == 0)
+		{ return number1; } 
+		
+		return findGCD(number2, number1%number2);
+		
+	}
 	
 	
 	
